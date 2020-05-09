@@ -16,14 +16,14 @@ class TasksController < ApplicationController
   
   
   def create
-    @task = Task.new(taks_params)
+    @task = Task.new(task_params)
     
     if @task.save
-      flash[:success] = 'タスクが正常に投稿されました'
+      flash[:success] = 'Taskが正常に投稿されました'
       redirect_to @task
       
     else
-      flash.now[:danger] = 'タスクが投稿されませんでした'
+      flash.now[:danger] = 'Taskが投稿されませんでした'
       render :new
     end
   end
@@ -58,7 +58,7 @@ class TasksController < ApplicationController
   
   
   
-  privaate
+  private
   
   # Strong Parameter
   def task_params
