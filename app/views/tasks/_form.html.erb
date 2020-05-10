@@ -13,6 +13,9 @@
 
   <%= f.label :content, 'タスク' %>
   <%= f.text_field :content %>
+    
+  <label>ステータス<input type="text" name="task[status]" value="<%= task.status %>" id="task_status"></label>
+  
   
   <%= f.submit '投稿' %>
 <% end %>
