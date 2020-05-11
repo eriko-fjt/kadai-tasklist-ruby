@@ -1,21 +1,32 @@
-<%= form_with(model: task, local: true) do |f| %>
-
-  <% if task.errors.any? %>
-   <div id="error_explanation">
-       <ul>
-           <% task.errors.full_messages.each do |msg| %>
-           <li><%= msg %></li>
-           <% end %>
-       </ul>
-   </div>
-  <% end %>
-
-
-  <%= f.label :content, 'タスク' %>
-  <%= f.text_field :content %>
+<div class="row">
+  <div class="col-6">
     
-  <label>ステータス<input type="text" name="task[status]" value="<%= task.status %>" id="task_status"></label>
-  
-  
-  <%= f.submit '投稿' %>
-<% end %>
+    <%= form_with(model: task, local: true) do |f| %>
+    
+      <% if task.errors.any? %>
+       <div id="error_explanation" class="alert alert-warning">
+           <ul class="mb-0">
+               <% task.errors.full_messages.each do |msg| %>
+               <li><%= msg %></li>
+               <% end %>
+           </ul>
+       </div>
+      <% end %>
+      
+      <div class="form-group">
+        <%= f.label :content, 'タスク' %>
+        <%= f.text_field :content, class: 'form-control' %>    
+        
+      </div>
+      
+      <div class="form-group">
+        ステータス<input type="text" name="task[status]" class="form-control" value="<%= task.status %>" placeholder="10文字以内" id="task_status">
+      </div>
+    
+    
+      <%= f.submit '投稿', class: 'btn btn-primary' %>
+    <% end %>
+    
+  </div>
+</div>
+
