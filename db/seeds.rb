@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# バリデーションでstatusの文字数を制限しているので、注意
+
+(1..100).each do |number|
+  Task.create!(content: 'test content ' + number.to_s, status: 'status ' + number.to_s)
+end
