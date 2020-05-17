@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  
+  
   def new
     @user = User.new
   end
@@ -8,10 +11,10 @@ class UsersController < ApplicationController
     
     if @user.save
       flash[:success] = 'ユーザを登録しました。'
-      redirect_to @user
+      redirect_to tasks_url
       
     else
-      flash[:danger] = 'ユーザの登録に失敗しました。'
+      flash.now[:danger] = 'ユーザの登録に失敗しました。'
       render :new
     end
   end
