@@ -1,13 +1,11 @@
-<div class="text-center">
+<div clsss="text-center">
   <h1>Sign up</h1>
 </div>
-
 
 <div class="row">
   <div class="col-sm-6 offset-sm-3">
     
     <%= form_with(model: @user, local: true) do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
     
       <div class="form-group">
         <%= f.label :name, 'Name' %>
@@ -16,17 +14,17 @@
       
       <div class="form-group">
         <%= f.label :email, 'Email' %>
-        <%= f.text_field :email, class: 'form-control' %>
+        <%= f.email_field :email, class: 'form-control' %>
       </div>
       
       <div class="form-group">
         <%= f.label :password, 'Password' %>
-        <%= f.text_field :password, class: 'form-control' %>
+        <%= f.password_field :name, class: 'form-control' %>
       </div>
       
       <div class="form-group">
         <%= f.label :password_confirmation, 'Confirmation' %>
-        <%= f.text_field :wassword_confirmation, class: 'form-control' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
       
       <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
@@ -34,3 +32,10 @@
       
   </div>
 </div>
+
+
+
+
+
+
+
