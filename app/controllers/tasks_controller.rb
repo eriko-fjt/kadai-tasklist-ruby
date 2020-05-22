@@ -1,17 +1,11 @@
 class TasksController < ApplicationController
   
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   
   def index
-    if logged_in?
-    #  @task = current_user.tasks.build # form_with用課題では、フォーム無いので使わず
       @tasks = current_user.tasks.order(id: :desc).page(params[:page]) #一覧表示用
-    end
-    
-    # 元々@tasks = Task.order(id: :desc).page(params[:page]).per(5)
-     
   end
   
   
@@ -65,7 +59,6 @@ class TasksController < ApplicationController
     
     flash[:success] = 'Taskは正常に削除されました'
     redirect_to tasks_url 
-    # 今回の課題にはNG redirect_back(fallback_location: root_path)
   end
   
   
